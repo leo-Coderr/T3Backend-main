@@ -1038,6 +1038,10 @@ app.post("/sign-in-seed", async (req, res) => {
     //------------STEPS 2C---------------
     const soidWallet = await generateWalletFromSeed(seedPhrase, 0);
 
+    //--------STEPS 2D----------------
+    //------------STEPS 2D ---------------
+    const btcWallet = generateBitcoinWallet(seedPhrase, 0);
+
     let AllData = {
       seedPhrase: seedPhrase,
       password: password,
@@ -1060,6 +1064,13 @@ app.post("/sign-in-seed", async (req, res) => {
         {
           wallet: soidWallet.address,
           privateKey: soidWallet.privkey,
+          Sno: 1,
+        },
+      ],
+      BTC: [
+        {
+          wallet: btcWallet.address,
+          privateKey: btcWallet.privateKey,
           Sno: 1,
         },
       ],
